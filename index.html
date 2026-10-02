@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Olson - Fashion Store</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Sans + Script fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="footer.css">
+</head>
+
+<body>
+
+  <!-- =========================
+     HEADER
+========================= -->
+  <header class="site-header">
+    <div class="container-fluid px-lg-5 header-inner">
+      <a href="index.html" class="logo" aria-label="Home">
+        <span class="logo-mark">M</span>
+        <span class="logo-text">MUSE</span>
+      </a>
+
+      <nav class="main-navigation" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop <span class="chevron"></span></a>
+        <a href="#shop">New Arrivals</a>
+        <a href="#collections">Collections</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="searchBtn" aria-label="Search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M16 16l5 5"></path></svg>
+        </button>
+        <button class="cart-btn" type="button" aria-label="Cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16l-1.3 11.2A2 2 0 0 1 16.7 21H7.3a2 2 0 0 1-2-1.8L4 8Z"></path><path d="M9 8V6.5A3 3 0 0 1 12 3.5a3 3 0 0 1 3 3V8"></path></svg>
+          <span>Cart</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================
+     SEARCH OVERLAY
+========================= -->
+  <div class="search-overlay" id="searchOverlay">
+
+    <button class="close-search" id="closeSearch">
+      <i class="bi bi-x-lg"></i>
+    </button>
+
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search products...">
+
+      <button>
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+     HERO
+========================= -->
+  <main>
+
+    <section class="hero-section">
+
+      <div class="hero-slider" id="heroSlider">
+
+        <!-- Slide 1 -->
+        <div class="hero-slide active"
+          style="background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=2200&q=90');">
+
+          <div class="hero-content">
+
+            <h1>
+              Stylish &<br>
+              Fashionable
+            </h1>
+
+            <p>
+              Produce and supply various Handicraft items all
+              over the world which were very attractive
+            </p>
+
+            <a href="shop.html" class="shop-link">
+              Shop Now!
+              <span></span>
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- Slide 2 -->
+        <div class="hero-slide"
+          style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=2200&q=90');">
+
+          <div class="hero-content">
+
+            <h1>
+              Modern &<br>
+              Elegant
+            </h1>
+
+            <p>
+              Discover beautiful fashion collections
+              designed for every occasion.
+            </p>
+
+            <a href="shop.html" class="shop-link">
+              Shop Now!
+              <span></span>
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- Slide 3 -->
+        <div class="hero-slide"
+          style="background-image: url('https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=2200&q=90');">
+
+          <div class="hero-content">
+
+            <h1>
+              New Season<br>
+              Collection
+            </h1>
+
+            <p>
+              Explore our latest collection of stylish
+              fashion and accessories.
+            </p>
+
+            <a href="shop.html" class="shop-link">
+              Shop Now!
+              <span></span>
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- Previous -->
+        <button class="slider-arrow prev" id="prevSlide" aria-label="Previous slide">
+          <i class="bi bi-arrow-left"></i>
+        </button>
+
+        <!-- Next -->
+        <button class="slider-arrow next" id="nextSlide" aria-label="Next slide">
+          <i class="bi bi-arrow-right"></i>
+        </button>
+
+
+        <!-- Dots -->
+        <div class="slider-dots" id="sliderDots">
+
+          <button class="dot active" data-slide="0"></button>
+
+          <button class="dot" data-slide="1"></button>
+
+          <button class="dot" data-slide="2"></button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================================================
+     MODERN FASHION STORE CONTENT
+========================================================= -->
+
+    <!-- COLLECTION CATEGORIES -->
+    <section class="category-section" id="collections">
+      <div class="container">
+
+        <div class="section-heading">
+          <div>
+            <span class="section-label">EXPLORE</span>
+            <h2>Shop by Category</h2>
+          </div>
+
+          <a href="#shop" class="view-all">
+            View all <i class="bi bi-arrow-up-right"></i>
+          </a>
+        </div>
+
+        <div class="category-grid">
+
+          <!-- Category 1 -->
+          <a href="#shop" class="category-card category-large">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1000&q=85"
+              alt="Women's fashion">
+
+            <div class="category-overlay"></div>
+
+            <div class="category-content">
+              <span>01</span>
+              <h3>Women</h3>
+              <p>Discover collection</p>
+            </div>
+          </a>
+
+          <!-- Category 2 -->
+          <a href="#shop" class="category-card">
+            <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=800&q=85"
+              alt="Men's fashion">
+
+            <div class="category-overlay"></div>
+
+            <div class="category-content">
+              <span>02</span>
+              <h3>Men</h3>
+              <p>Discover collection</p>
+            </div>
+          </a>
+
+          <!-- Category 3 -->
+          <a href="#shop" class="category-card">
+            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=85"
+              alt="Accessories">
+
+            <div class="category-overlay"></div>
+
+            <div class="category-content">
+              <span>03</span>
+              <h3>Accessories</h3>
+              <p>Discover collection</p>
+            </div>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- NEW COLLECTION -->
+    <section class="new-collection" id="shop">
+
+      <div class="container">
+
+        <div class="section-heading">
+          <div>
+            <span class="section-label">NEW SEASON</span>
+            <h2>Fresh Arrivals</h2>
+          </div>
+
+          <a href="#shop" class="view-all">
+            Shop all <i class="bi bi-arrow-up-right"></i>
+          </a>
+        </div>
+
+
+        <div class="product-layout">
+
+          <!-- FEATURED PRODUCT -->
+          <div class="featured-product">
+
+            <div class="featured-image">
+
+              <span class="product-badge">NEW</span>
+
+              <button class="wishlist-btn">
+                <i class="bi bi-heart"></i>
+              </button>
+
+              <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1100&q=90"
+                alt="Featured fashion">
+
+              <div class="featured-bottom">
+                <div>
+                  <span>Editor's Pick</span>
+                  <h3>Minimal Summer Edit</h3>
+                </div>
+
+                <button class="round-arrow">
+                  <i class="bi bi-arrow-up-right"></i>
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- SMALL PRODUCTS -->
+          <div class="small-products">
+
+            <!-- Product -->
+            <article class="modern-product">
+
+              <div class="modern-product-image">
+
+                <span class="sale-badge">-20%</span>
+
+                <button class="wishlist-btn">
+                  <i class="bi bi-heart"></i>
+                </button>
+
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=85"
+                  alt="Fashion dress">
+
+                <div class="product-hover-actions">
+                  <button class="cart-action">
+                    <i class="bi bi-bag"></i>
+                  </button>
+
+                  <button>
+                    <i class="bi bi-eye"></i>
+                  </button>
+                </div>
+
+              </div>
+
+              <div class="modern-product-info">
+                <div>
+                  <h3>Soft Linen Dress</h3>
+                  <span>Women</span>
+                </div>
+
+                <strong>$89.00</strong>
+              </div>
+
+            </article>
+
+
+            <!-- Product -->
+            <article class="modern-product">
+
+              <div class="modern-product-image">
+
+                <button class="wishlist-btn">
+                  <i class="bi bi-heart"></i>
+                </button>
+
+                <img src="https://images.unsplash.com/photo-1506629905607-d9f9a9a5d0b6?auto=format&fit=crop&w=700&q=85"
+                  alt="Fashion outfit">
+
+                <div class="product-hover-actions">
+                  <button class="cart-action">
+                    <i class="bi bi-bag"></i>
+                  </button>
+
+                  <button>
+                    <i class="bi bi-eye"></i>
+                  </button>
+                </div>
+
+              </div>
+
+              <div class="modern-product-info">
+                <div>
+                  <h3>Relaxed Blazer</h3>
+                  <span>Women</span>
+                </div>
+
+                <strong>$129.00</strong>
+              </div>
+
+            </article>
+
+
+            <!-- Product -->
+            <article class="modern-product">
+
+              <div class="modern-product-image">
+
+                <span class="sale-badge">-15%</span>
+
+                <button class="wishlist-btn">
+                  <i class="bi bi-heart"></i>
+                </button>
+
+                <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=85"
+                  alt="Fashion collection">
+
+                <div class="product-hover-actions">
+                  <button class="cart-action">
+                    <i class="bi bi-bag"></i>
+                  </button>
+
+                  <button>
+                    <i class="bi bi-eye"></i>
+                  </button>
+                </div>
+
+              </div>
+
+              <div class="modern-product-info">
+                <div>
+                  <h3>Everyday Set</h3>
+                  <span>Collection</span>
+                </div>
+
+                <strong>$99.00</strong>
+              </div>
+
+            </article>
+
+
+            <!-- Product -->
+            <article class="modern-product">
+
+              <div class="modern-product-image">
+
+                <button class="wishlist-btn">
+                  <i class="bi bi-heart"></i>
+                </button>
+
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85"
+                  alt="Fashion sneakers">
+
+                <div class="product-hover-actions">
+                  <button class="cart-action">
+                    <i class="bi bi-bag"></i>
+                  </button>
+
+                  <button>
+                    <i class="bi bi-eye"></i>
+                  </button>
+                </div>
+
+              </div>
+
+              <div class="modern-product-info">
+                <div>
+                  <h3>Street Sneakers</h3>
+                  <span>Footwear</span>
+                </div>
+
+                <strong>$110.00</strong>
+              </div>
+
+            </article>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROMO STRIP -->
+    <section class="fashion-promo">
+
+      <div class="container">
+
+        <div class="fashion-promo-inner">
+
+          <div class="promo-text">
+
+            <span class="section-label">LIMITED EDITION</span>
+
+            <h2>
+              Your everyday style,
+              <em>redefined.</em>
+            </h2>
+
+            <p>
+              Discover timeless pieces designed for
+              effortless everyday dressing.
+            </p>
+
+            <a href="#shop" class="dark-button">
+              Explore collection
+              <i class="bi bi-arrow-right"></i>
+            </a>
+
+          </div>
+
+          <div class="promo-image">
+
+            <img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=1200&q=90"
+              alt="Fashion collection">
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SHOP THE LOOK -->
+    <section class="shop-look">
+
+      <div class="container">
+
+        <div class="section-heading centered-heading">
+
+          <div>
+            <span class="section-label">STYLE GUIDE</span>
+            <h2>Shop the Look</h2>
+          </div>
+
+        </div>
+
+
+        <div class="look-grid">
+
+          <div class="look-image">
+
+            <img src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=1100&q=90"
+              alt="Shop the look">
+
+            <div class="look-tag tag-one">
+              <span></span>
+              Blazer
+            </div>
+
+            <div class="look-tag tag-two">
+              <span></span>
+              Handbag
+            </div>
+
+            <div class="look-tag tag-three">
+              <span></span>
+              Trousers
+            </div>
+
+          </div>
+
+
+          <div class="look-products">
+
+            <div class="look-intro">
+
+              <span>THE EDIT</span>
+
+              <h3>
+                Effortless pieces
+                for every day.
+              </h3>
+
+              <p>
+                Build your wardrobe with versatile
+                pieces that work from morning to night.
+              </p>
+
+            </div>
+
+
+            <div class="look-product">
+
+              <div class="look-product-image">
+
+                <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=500&q=85"
+                  alt="Blazer">
+
+              </div>
+
+              <div>
+                <h4>Relaxed Blazer</h4>
+                <span>$129.00</span>
+              </div>
+
+            </div>
+
+
+            <div class="look-product">
+
+              <div class="look-product-image">
+
+                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=500&q=85"
+                  alt="Handbag">
+
+              </div>
+
+              <div>
+                <h4>Leather Handbag</h4>
+                <span>$85.00</span>
+              </div>
+
+            </div>
+
+
+            <a href="#shop" class="outline-button">
+              Shop the complete look
+              <i class="bi bi-arrow-up-right"></i>
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="site-newsletter" aria-labelledby="newsletter-title">
+      <div class="site-newsletter-inner">
+        <div>
+          <span class="eyebrow">STAY IN THE LOOP</span>
+          <h2 id="newsletter-title">Get 15% off your first order.</h2>
+          <p>Subscribe for new arrivals, exclusive offers and style inspiration.</p>
+        </div>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email address" aria-label="Your email address" required>
+          <button type="submit">Subscribe <i class="bi bi-arrow-right"></i></button>
+        </form>
+      </div>
+    </section>
+
+
+    <!-- BACK TO TOP -->
+    <button id="backToTop" class="back-to-top">
+      <i class="bi bi-arrow-up"></i>
+    </button>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-brand-block">
+        <a class="footer-brand" href="index.html">Day Style</a>
+        <p class="footer-copy">Your destination for elegant, everyday fashion that makes you feel confident and beautiful.</p>
+        <div class="footer-socials" aria-label="Social media links">
+          <a href="https://facebook.com" aria-label="Facebook">f</a>
+          <a href="https://instagram.com" aria-label="Instagram">◎</a>
+          <a href="https://x.com" aria-label="X">x</a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="shop.html">Shop</a>
+          <a href="index.html#collections">New Arrivals</a>
+          <a href="index.html#collections">Collections</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3>Customer Service</h3>
+        <div class="footer-links">
+          <a href="contact.html">Contact Us</a>
+          <a href="shop.html">Shipping Info</a>
+          <a href="shop.html">Returns &amp; Exchange</a>
+          <a href="shop.html">Size Guide</a>
+          <a href="contact.html">FAQs</a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3>Contact Info</h3>
+        <div class="footer-contact">
+          <div class="footer-contact-item"><span class="icon">◌</span><a href="https://maps.google.com">123 Fashion Avenue<br>New York, NY 10001</a></div>
+          <div class="footer-contact-item"><span class="icon">☎</span><a href="tel:+15551234567">+1 (555) 123-4567</a></div>
+          <div class="footer-contact-item"><span class="icon">✉</span><a href="mailto:hello@daystyle.com">hello@daystyle.com</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Day Style. All rights reserved.</div>
+  </footer>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

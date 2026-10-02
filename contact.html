@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Olson / Muse Form</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="footer.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              bg: '#f6f4f0',       /* Hero & Form container background */
+              white: '#ffffff',    /* Main content background */
+              dark: '#212224',     /* Primary headings and button */
+              muted: '#6a6763',    /* Body paragraphs */
+              terracotta: '#b77b56',/* Eyebrow & highlights */
+              border: '#e4dec8',   /* Form outer border & dividers */
+              inputBorder: '#bb3b2d'
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom styling for sleek underline form controls */
+    .custom-input {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(160, 150, 140, 0.4);
+      border-radius: 0;
+      padding: 8px 0 10px 0;
+      color: #212224;
+      font-size: 0.95rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      width: 100%;
+    }
+
+    .custom-input:focus {
+      outline: none;
+      border-bottom-color: #b77b56;
+      box-shadow: 0 1px 0 0 #b77b56;
+    }
+
+    /* Select element arrow styling */
+    select.custom-input {
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%206a6763' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 0px center;
+      background-size: 14px;
+      padding-right: 20px;
+    }
+
+    textarea.custom-input {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .site-header {
+      background: #ffffff;
+      border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      width: min(100%, 1500px);
+      margin: 0 auto;
+      min-height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 26px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #171717;
+      text-decoration: none;
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      line-height: 1;
+    }
+
+    .logo-mark {
+      width: 30px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #171717;
+      border-radius: 50%;
+      font-size: 22px;
+      font-family: Georgia, serif;
+      font-weight: 700;
+      line-height: 1;
+      transform: translateY(-2px);
+    }
+
+    .logo-text {
+      letter-spacing: 0.02em;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 34px;
+      margin: 0 auto;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .main-nav a {
+      color: #171717;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+      color: #5d5d5d;
+    }
+
+    .chevron {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      margin-left: 6px;
+      border-right: 1.5px solid #171717;
+      border-bottom: 1.5px solid #171717;
+      transform: rotate(45deg) translateY(-1px);
+      vertical-align: 2px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .icon-btn,
+    .cart-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 0;
+      background: transparent;
+      color: #171717;
+      cursor: pointer;
+      font: inherit;
+      padding: 0;
+    }
+
+    .icon-btn svg,
+    .cart-btn svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .cart-btn {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 767px) {
+      .main-nav {
+        display: none;
+      }
+
+      .header-inner {
+        padding: 12px 18px;
+      }
+
+      main.max-w-6xl {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .site-footer-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-brand-white text-brand-dark font-sans antialiased min-h-screen flex flex-col justify-between">
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Home">
+        <span class="logo-mark">M</span>
+        <span class="logo-text">MUSE</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop <span class="chevron"></span></a>
+        <a href="index.html#shop">New Arrivals</a>
+        <a href="index.html#collections">Collections</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" type="button" aria-label="Search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M16 16l5 5"></path></svg>
+        </button>
+        <button class="cart-btn" type="button" aria-label="Cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16l-1.3 11.2A2 2 0 0 1 16.7 21H7.3a2 2 0 0 1-2-1.8L4 8Z"></path><path d="M9 8V6.5A3 3 0 0 1 12 3.5a3 3 0 0 1 3 3V8"></path></svg>
+          <span>Cart</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="bg-brand-bg py-16 md:py-24 text-center border-b border-gray-200/50">
+    <div class="max-w-3xl mx-auto px-6">
+      <h1 class="font-serif text-6xl md:text-7xl font-medium tracking-tight text-brand-dark">
+        Contact
+      </h1>
+      <p class="mt-4 text-brand-muted text-base md:text-lg font-normal tracking-wide">
+        Questions, thoughts, or just want to say hello? Our studio is here.
+      </p>
+    </div>
+  </section>
+
+  <main class="max-w-6xl mx-auto px-6 py-16 md:py-24 w-full flex-grow">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      
+      <!-- Left Column: Copy & Details -->
+      <div class="lg:col-span-5 flex flex-col pt-2">
+        <span class="text-brand-terracotta text-xs font-semibold uppercase tracking-[0.22em] mb-4">
+          GET IN TOUCH
+        </span>
+
+        <h2 class="font-serif text-4xl md:text-5xl font-medium text-brand-dark leading-[1.1] tracking-tight">
+          Let's start a <br>
+          <span class="italic font-normal text-brand-terracotta">conversation.</span>
+        </h2>
+
+        <p class="mt-6 text-brand-muted leading-relaxed text-sm md:text-base max-w-md">
+          For styling advice, order support, press, or wholesale enquiries, send us a note. We typically reply within two business days.
+        </p>
+
+        <hr class="my-8 border-gray-200 max-w-sm" />
+
+        <!-- Meta Information -->
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-brand-terracotta text-[11px] font-semibold uppercase tracking-[0.2em] mb-1">
+              EMAIL
+            </h3>
+            <a href="mailto:hello@museform.studio" class="text-brand-dark text-sm hover:underline transition">
+              hello@museform.studio
+            </a>
+          </div>
+
+          <div>
+            <h3 class="text-brand-terracotta text-[11px] font-semibold uppercase tracking-[0.2em] mb-1">
+              STUDIO HOURS
+            </h3>
+            <p class="text-brand-dark text-sm">
+              Mon–Fri, 9am–5pm EST
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7">
+        <div class="bg-brand-bg p-8 md:p-12 border border-gray-200/80 rounded-sm">
+          <form id="contact-form" class="space-y-8" onsubmit="handleFormSubmit(event)">
+            
+            <!-- Success Message Container -->
+            <div id="form-success" class="hidden p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm rounded">
+              Thank you for reaching out! We have received your message and will respond shortly.
+            </div>
+
+            <!-- Row 1: Name and Email -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div class="flex flex-col">
+                <label for="name" class="text-[11px] font-semibold text-brand-muted uppercase tracking-[0.18em] mb-1">
+                  NAME
+                </label>
+                <input type="text" id="name" name="name" required class="custom-input" placeholder="" />
+              </div>
+
+              <div class="flex flex-col">
+                <label for="email" class="text-[11px] font-semibold text-brand-muted uppercase tracking-[0.18em] mb-1">
+                  EMAIL
+                </label>
+                <input type="email" id="email" name="email" required class="custom-input" placeholder="" />
+              </div>
+            </div>
+
+            <!-- Row 2: Subject -->
+            <div class="flex flex-col">
+              <label for="subject" class="text-[11px] font-semibold text-brand-muted uppercase tracking-[0.18em] mb-1">
+                SUBJECT
+              </label>
+              <select id="subject" name="subject" required class="custom-input">
+                <option value="" disabled selected hidden></option>
+                <option value="General Inquiry">General Inquiry</option>
+                <option value="Order Support">Order Support</option>
+                <option value="Wholesale">Wholesale & Press</option>
+                <option value="Styling Advice">Styling Advice</option>
+              </select>
+            </div>
+
+            <!-- Row 3: Message -->
+            <div class="flex flex-col">
+              <label for="message" class="text-[11px] font-semibold text-brand-muted uppercase tracking-[0.18em] mb-1">
+                MESSAGE
+              </label>
+              <textarea id="message" name="message" rows="4" required class="custom-input"></textarea>
+            </div>
+
+            <!-- Row 4: Submit Button Alignment -->
+            <div class="flex justify-end pt-2">
+              <button type="submit" class="bg-brand-dark hover:bg-black text-white text-xs font-semibold uppercase tracking-[0.15em] px-8 py-4 transition flex items-center gap-3 group">
+                <span>SEND MESSAGE</span>
+                <span class="text-base group-hover:translate-x-1 transition-transform">→</span>
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-brand-block">
+        <a class="footer-brand" href="index.html">Day Style</a>
+        <p class="footer-copy">Your destination for elegant, everyday fashion that makes you feel confident and beautiful.</p>
+        <div class="footer-socials" aria-label="Social media links">
+          <a href="https://facebook.com" aria-label="Facebook">f</a>
+          <a href="https://instagram.com" aria-label="Instagram">◎</a>
+          <a href="https://x.com" aria-label="X">x</a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="shop.html">Shop</a>
+          <a href="index.html#collections">New Arrivals</a>
+          <a href="index.html#collections">Collections</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3>Customer Service</h3>
+        <div class="footer-links">
+          <a href="contact.html">Contact Us</a>
+          <a href="shop.html">Shipping Info</a>
+          <a href="shop.html">Returns &amp; Exchange</a>
+          <a href="shop.html">Size Guide</a>
+          <a href="contact.html">FAQs</a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3>Contact Info</h3>
+        <div class="footer-contact">
+          <div class="footer-contact-item"><span class="icon">◌</span><a href="https://maps.google.com">123 Fashion Avenue<br>New York, NY 10001</a></div>
+          <div class="footer-contact-item"><span class="icon">☎</span><a href="tel:+15551234567">+1 (555) 123-4567</a></div>
+          <div class="footer-contact-item"><span class="icon">✉</span><a href="mailto:hello@daystyle.com">hello@daystyle.com</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Day Style. All rights reserved.</div>
+  </footer>
+
+  <script>
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const successBox = document.getElementById('form-success');
+      const form = document.getElementById('contact-form');
+      
+      // Show success alert inside form box
+      successBox.classList.remove('hidden');
+      
+      // Reset input fields
+      form.reset();
+      
+      // Scroll smoothly to success box top
+      successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      
+      // Auto dismiss message after 6 seconds
+      setTimeout(() => {
+        successBox.classList.add('hidden');
+      }, 6000);
+    }
+  </script>
+
+</body>
+</html>
